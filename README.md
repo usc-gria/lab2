@@ -85,7 +85,7 @@ Vamos a crear la clase Canción, con las propiedades que teníamos en el diccion
 
 #### **Clase `ListaPublica`**
 - Esta lista no está asociada a ningún usuario, son listas por defecto proporcionadas por el sistema.
-- Agrega el atributo de `valoraciónes`: Lista de valoraciones, con números de estrellas entre 1 y 5.
+- Agrega el atributo de `valoraciones`: Lista de valoraciones, con números de estrellas entre 1 y 5.
 - Agrega el atributo de `seguidores`: Lista de usuarios que siguen esta lista. 
 - Método `valoracion_media()`: Devuelve la media de las valoraciones.
 - Método `agregar_seguidor(usuario)`: Añade un usuario a la lista de seguidores si aún no la sigue.
@@ -114,7 +114,8 @@ print("3. Gestionar listas de reproducción públicas")
 print("4. Gestionar usuarios")
 print("5. Salir")
 ```
-La opción `2` deben permitir añadir o eliminar canciones al catálogo, mientras que la opción `3` debe permitir añadir o eliminar listas públicas. 
+La opción `2` deben permitir añadir o eliminar canciones al catálogo, además de llamar a las funcionalidades implementadas (del catálogo y de canciones).
+La opción `3` debe permitir añadir o eliminar listas públicas. 
 La opción `4` debe permitir añadir o eliminar usuarios del sistema.
 
 El menú de usuario, una vez iniciada correctamente la sesión (comprobándolo en la lista_usuarios con nombre y password), debe permitir:
@@ -128,7 +129,7 @@ print("5. Cerrar sesión")
 
 Donde la opción `2` permite añadir o eliminar canciones de la biblioteca. Si es UsuarioPremium, también se le permitirá descargar las canciones de su lista.
 
-La opción `3` permite crear o eliminar listas de reproducción y añadir o eliminar canciones de listas ya creadas. Permite buscar listas públicas y seguirlas.
+La opción `3` permite crear o eliminar listas de reproducción y añadir o eliminar canciones de listas ya creadas. Permite buscar listas públicas, seguirlas y valorarlas.
 Además, permite buscar en las listas y ejecutar las funciones implementadas `ordenar_lista_por_popularidad(), duracion_total_lista(), mostrar_lista_reproduccion()`
 Si es usuario premium, además permitirá seguir otras listas de reproducción de los amigos del usuario.
 
@@ -137,7 +138,7 @@ La opción `4` permite gestionar a los amigos, añadiéndolos o eliminándolos s
 
 ## **Consejos**
 Comienza desarrollando y PROBANDO cada una de las clases individualmente. Vete paso a paso implementando cada una de las funcionalidades y testando cada parte individualmente.
-
+Ten en cuenta que si eliminamos un objeto de alguna de las listas, debemos eliminar ese objeto en el resto de listas asociadas. Por ejemplo, si se elimina un usuario, y ese usuario es seguir de listas públicas, debería eliminarse de esa lista. Igualmente con las canciones del catálogo.
 
 ## **Entrega Final**
 - Código bien estructurado y documentado.
