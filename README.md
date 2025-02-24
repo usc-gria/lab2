@@ -144,7 +144,8 @@ La opción `4` permite gestionar a los amigos, añadiéndolos o eliminándolos s
 
 ## **Consejos**
 Comienza desarrollando y PROBANDO cada una de las clases individualmente. Vete paso a paso implementando cada una de las funcionalidades y testando cada parte individualmente.
-Ten en cuenta que si eliminamos un objeto de alguna de las listas, debemos eliminar ese objeto en el resto de listas asociadas. Por ejemplo, si se elimina un usuario, y ese usuario es seguir de listas públicas, debería eliminarse de esa lista. Igualmente con las canciones del catálogo.
+Ten en cuenta que si eliminamos un objeto de alguna de las listas, debemos eliminar ese objeto en el resto de listas asociadas. 
+Por ejemplo, si se elimina un usuario, y ese usuario es seguidor de listas públicas, debería eliminarse de esa lista. Igualmente con las canciones del catálogo.
 
 
 ## **Entrega Final**
