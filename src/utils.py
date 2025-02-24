@@ -37,3 +37,12 @@ def buscar_canciones_apple_music(query, numero_canciones=1):
 
 def convertir_seg_a_min_seg(s):
     return time.strftime("%M:%S", time.gmtime(s*1000 // 1000))
+
+def mostrar_anuncio(anuncio):
+    print("-------------------")
+    print(anuncio)
+    for i in range(3):
+        print(".", end="")
+        time.sleep(1)
+    print("\n-------------------")
+mostrar_anuncio("hola")

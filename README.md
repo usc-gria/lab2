@@ -17,6 +17,11 @@ Debes implementar la función especial `__str()__` en todas las clases.
 
 Lee con especial atención la práctica COMPLETA, y antes de ponerte a programar, debes diseñar un modelo UML como los vistos en clase (puede ser en papel). Debes entregarlo junto con la práctica, como una imagen en formato PNG.
 
+Todas las funciones de crear/eliminar deben devolver `True` si tienen éxito, o `False` si no consiguen realizarlo. Todas las funcionalidades adicionales necesarias (por ejemplo, antes de añadir una canción a la biblioteca de un usuario, este debe seleccionar qué canción quiere añadir del catálogo) deben implementarse en el `main.py`. 
+Pueden implementarse funciones a mayores (siguiendo con el ejemplo anterior, puedo listarle todas las canciones del catálogo de una vez o primero mostrarle los artistas, seleccionar uno de ellos y luego sus canciones para seleccionar una de ellas). Este tipo de funcionalidades queda a decisión de cada uno.
+
+Los nombres de las clases, sus atributos y métodos, así como el orden de los parámetros deben coincidir con lo que se define en este documento.
+
 ### **Creación de la Clase `Cancion`**
 #### **Descripción:**
 Vamos a crear la clase Canción, con las propiedades que teníamos en el diccionario. Cambiamos el valor de reproducciones a un atributo que sea popularidad de la canción y la duración es en segundos.
@@ -71,7 +76,7 @@ Vamos a crear la clase Canción, con las propiedades que teníamos en el diccion
 
 ### **Implementación de Herencia**
 #### **Clase `UsuarioPremium`**
-- Agrega el atributo `lista_repdroduccion_seguidas`: Lista de las listas seguidas por el usuario de sus amigos. 
+- Agrega el atributo `listas_reproduccion_seguidas`: Lista de las listas seguidas por el usuario de sus amigos. 
 - Son los únicos usuarios que pueden descargar canciones.
 - Método `descargar_cancion(cancion)`, que simula la descarga de una canción de la biblioteca cambiando su valor en el diccionario de la biblioteca.
 - Método `canciones_descargadas()` que muestra una lista de todas las canciones descargadas.
@@ -79,9 +84,9 @@ Vamos a crear la clase Canción, con las propiedades que teníamos en el diccion
 - Método `seguir_lista_reproduccion(lista_reproduccion)`: Añade una lista de reproducción a listas seguidas por el usuario. Debe ser una lista de alguno de sus amigos.
 
 #### **Clase `UsuarioFree`**
-- Agrega el atributo `fecha_registro` (privado): Fecha en la que se dio de alta en el sistema.
-- Método `ver_anuncio()`: que simula la visualización de un anuncio antes crear una lista de reproducción o agregar una canción a la biblioteca.
-- Método `comprobar_fecha()`: Comprueba si la fecha de registro es mayor a 2 años desde la actualidad. En caso de ser verdadero, debe ver dos anuncios, en vez de uno.
+- Agrega el atributo `fecha_registro` (privado): Fecha en la que se dio de alta en el sistema. Debe ser una instancia de alguna clase de la librería datetime.
+- Método `ver_anuncio()`: que simula la visualización de un anuncio antes crear una lista de reproducción o agregar una canción a la biblioteca. Puedes usar el método de `utils.py`.
+- Método `comprobar_fecha()`: Comprueba si la fecha de registro es mayor a 2 años desde la actualidad. En caso de ser verdadero, debe ver dos anuncios, en vez de uno. Usa la librería datetime
 
 #### **Clase `ListaPublica`**
 - Esta lista no está asociada a ningún usuario, son listas por defecto proporcionadas por el sistema.
@@ -96,14 +101,15 @@ Vamos a crear la clase Canción, con las propiedades que teníamos en el diccion
 Implementa un programa principal que permita gestionar usuarios, catálogo y listas de reproducción.
 
 El programa debe empezar ya con al menos 10 canciones en el catálogo, 4 usuarios (2 Premium y 2 Free) y 3 Listas Públicas (e.g., Clásicos, Rock, Urbana) con al menos 3 canciones cada lista. 
-Puedes implementar una función en `main.py` que "rellene" tus listas con los objetos necesarios por defecto. 
-Tienes un archivo `utils.py` con dos funciones que pueden ser de ayuda:
+Puedes implementar una función en el `main.py` que "rellene" tus listas con los objetos necesarios por defecto. 
+Tienes un archivo `utils.py` con tres funciones que pueden ser de ayuda:
 
 - `buscar_canciones_apple_music(query, numero_canciones)` (necesario internet): Hace una petición a la base de datos de Apple Music con los siguientes parámetros:
   - query: puedes usar una o varias palabras (por ejemplo: `the rapants` o `boyanka kostova`, también funcionaría con títulos como `Muinheira De Interior`)
   - numero_de_canciones: número de canciones máximas que te devuelve de la búsqueda, por defecto su valor es 1.
   - Devuelve un diccionario de canciones con el siguiente formato (duración en segundos): `{"titulo": nombre, "artista": artista, "album": album, "duracion": duracion_seg, "popularidad": popularidad}`
 - `convertir_seg_a_min_seg(segundos)`: Convierte un tiempo en segundos al formato MM:SS, en formato string
+- `mostrar_anuncio(anuncio)`: Que simula la visión de un anuncio y lo ejecuta 3 segundos.
 
 El primer menú que se debe mostrar debería ser la entrada del usuario administrador:
 ```python
@@ -139,6 +145,7 @@ La opción `4` permite gestionar a los amigos, añadiéndolos o eliminándolos s
 ## **Consejos**
 Comienza desarrollando y PROBANDO cada una de las clases individualmente. Vete paso a paso implementando cada una de las funcionalidades y testando cada parte individualmente.
 Ten en cuenta que si eliminamos un objeto de alguna de las listas, debemos eliminar ese objeto en el resto de listas asociadas. Por ejemplo, si se elimina un usuario, y ese usuario es seguir de listas públicas, debería eliminarse de esa lista. Igualmente con las canciones del catálogo.
+
 
 ## **Entrega Final**
 - Código bien estructurado y documentado.
