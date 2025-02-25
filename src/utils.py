@@ -45,4 +45,3 @@ def mostrar_anuncio(anuncio):
         print(".", end="")
         time.sleep(1)
     print("\n-------------------")
-mostrar_anuncio("hola")
