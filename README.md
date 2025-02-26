@@ -25,19 +25,20 @@ Los nombres de las clases, sus atributos y métodos, así como el orden de los p
 ### **Creación de la Clase `Cancion`**
 #### **Descripción:**
 Vamos a crear la clase Canción, con las propiedades que teníamos en el diccionario. Cambiamos el valor de reproducciones a un atributo que sea popularidad de la canción y la duración es en segundos.
+El id se inicializa a `None` cuando se crea la canción y se actualiza a su valor correspondiente una vez que se agrega la canción al Catálogo (función `agregar_cancion(cancion)`). 
 - `id` (privado): Identificador único autoincrementado (igual que en lab1, no se añade hasta que se agrega al catálogo).
 - `titulo` (privado): Título de la canción (str, no puede ser vacío).
 - `artista` (privado): Nombre del artista (str, no puede ser vacío).
 - `album` (privado): Nombre del álbum (str, permitimos canción sin album).
 - `duracion` (privado): Duración de la canción en segundos (float, debe ser mayor a 0).
-- `popularidad` (privado): Contador de reproducciones (int, mayor o igual a 0).
+- `popularidad` (privado): Valor que mide la popularidad de una canción (int, mayor o igual a 0 y menor que 50).
 
 #### **Métodos Adicionales:**
 - `duracion_formateada()`: Devuelve un string con la duración formateada min:seg (tip: usar la función proporcionada en `utils.py`)
 - `es_mas_larga(otra_cancion)`: Devuelve `True` si la canción actual tiene una duración mayor que la otra. En cualquier otro caso, `False`.
 - `mismo_artista(otra_cancion)`: Devuelve `True` si ambas canciones pertenecen al mismo artista, ignorando mayúsculas y minúsculas. En cualquier otro caso, `False`.
 - `mismo_album(otra_cancion)`: Devuelve `True` si ambas canciones pertenecen al mismo álbum, ignorando mayúsculas y minúsculas. En cualquier otro caso, `False`.
-- `es_mas_popular(otra_cancion)`: Devuelve `True` si la canción actual tiene más reproducciones que la otra. En cualquier otro caso, `False`.
+- `es_mas_popular(otra_cancion)`: Devuelve `True` si la canción actual es más popular que la otra. En cualquier otro caso, `False`.
 
 ### **Creación de la Clase `Catalogo`**
 - Contendrá dos lista de canciones: `actuales` y `eliminadas`.
